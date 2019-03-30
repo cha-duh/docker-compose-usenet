@@ -57,9 +57,7 @@ services:
       - "8080:8080"
     volumes:
       - ${CONFIG}/sabnzbd:/config
-      - ${DOWNLOAD}/complete:/downloads
-      - ${DOWNLOAD}/incomplete:/incomplete-downloads
-      - ${DOWNLOAD}/watch:/watch
+      - ${DOWNLOAD}:/files
     environment:
       - PGID
       - PUID
@@ -80,9 +78,7 @@ services:
       - "8989:8989"
     volumes:
       - ${CONFIG}/sonarr:/config
-      - ${DOWNLOAD}/complete:/downloads
-      - ${DATA}/tv:/tv
-      - ${DATA}/anime:/anime
+      - ${DOWNLOAD}:/files
     environment:
       - PGID
       - PUID
@@ -103,8 +99,8 @@ services:
       - "7878:7878"
     volumes:
       - ${CONFIG}/radarr:/config
-      - ${DOWNLOAD}/complete:/downloads
-      - ${DATA}/movies:/movies
+      - ${DOWNLOAD}:/files
+
     environment:
       - PGID
       - PUID
@@ -126,8 +122,7 @@ services:
     volumes:
       - ${CONFIG}/lidarr:/config
       - /etc/localtime:/etc/localtime:ro
-      - ${DOWNLOAD}/complete:/downloads
-      - ${DATA}/music:/music
+      - ${DOWNLOAD}:/files
     environment:
       - PGID
       - PUID
@@ -147,8 +142,7 @@ services:
       - "5299:5299"
     volumes:
       - ${CONFIG}/lazylibrarian:/config
-      - ${DOWNLOAD}/complete:/downloads
-      - ${DATA}/books:/books
+      - ${DOWNLOAD}:/files
     environment:
       - PGID
       - PUID
@@ -169,8 +163,7 @@ services:
       - "8090:8090"
     volumes:
       - ${CONFIG}/mylar:/config
-      - ${DOWNLOAD}/complete:/downloads
-      - ${DATA}/comics:/comics
+      - ${DOWNLOAD}:/files
     environment:
       - PGID
       - PUID
